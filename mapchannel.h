@@ -12,7 +12,7 @@ public:
     /*MainWindow 调用*/
     void addPoint(double lng, double lat);
     void movePoint(int id, double lng, double lat);
-    void updateBoatPos(double lng, double lat, double course);
+    void updateBoatPos(double lng, double lat, double cause);
     void setOrigin(double lng, double lat);
     void addFencePoint(double,double);
     void addFence();

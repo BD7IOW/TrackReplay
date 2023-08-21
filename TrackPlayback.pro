@@ -4,8 +4,10 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network
+
 QT       += webenginewidgets
+QT       += serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -29,18 +31,30 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     mapchannel.cpp \
-    help.cpp
+    myserial.cpp \
+    qcustomplot.cpp \
+    worker.cpp
 
 HEADERS += \
         mainwindow.h \
     mapchannel.h \
-    help.h
+    myserial.h \
+    qcustomplot.h \
+    worker.h
 
 FORMS += \
-        mainwindow.ui \
-    help.ui
+        mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../ -ldecnumber
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../ -ldecnumberd
+else:unix: LIBS += -L$$PWD/../ -ldecnumber
+
+INCLUDEPATH += $$PWD/../qdecimal-master/qdecimal-master/decnumber
+INCLUDEPATH += $$PWD/../qdecimal-master/qdecimal-master/src
+DEPENDPATH += $$PWD/../qdecimal-master/qdecimal-master/decnumber

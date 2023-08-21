@@ -30,9 +30,9 @@ void MapChannel::transPoints(int id, double lng, double lat)
     emit pointsCome(id,lng,lat);
 }
 
-void MapChannel::updateBoatPos(double lng, double lat, double course)
+void MapChannel::updateBoatPos(double lng, double lat, double cause)
 {
-    emit boatPosUpdated(lng,lat,course);
+    emit boatPosUpdated(lng,lat,cause);
 }
 
 void MapChannel::reloadMap()
